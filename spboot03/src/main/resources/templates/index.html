@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+
+
+<body>
+
+
+    <!--th:text-->
+
+    <h3 th:text="${message}"></h3>
+
+    <br>
+    消息:<input type="text" th:value="${message}">
+
+    <hr/>
+    编号：<span th:text="${person.id}"></span><br/>
+    姓名：<span th:text="${person.name}"></span><br/>
+    性别：<span th:text="${person.gender}"></span><br/>
+    年龄：<span th:text="${person.age}"></span><br/>
+
+
+    <br><br>
+    字符串拼接1：<h3 th:text="|我是前面:${message}:我是后面|"></h3>
+    字符串拼接2：<h3 th:text="'我是前面:'+${message}+':我是后面'"></h3>
+    <br><br>
+
+    老师列表:<br>
+    <ui>
+        <li th:each="p:${pList}">[[${p.id}]]--[[${p.name}]]--[[${p.age}]]--[[${p.gender}]]</li>
+    </ui>
+
+
+    选择标签:switch
+    <!-- switch选择语句 -->
+    <div th:switch="${fruit}">
+        <p th:case="'apple'">你是苹果</p>
+        <p th:case="'orange'">你是桔子</p>
+    </div>
+</body>
+</html>
